@@ -8,11 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
-
 
 @RestController
 @Slf4j
@@ -20,6 +19,11 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class RedisController {
     private final HttpSession session;
+
+    @GetMapping
+    public String hello() {
+        return "Hello, Redis!";
+    }    
 
     @SuppressWarnings("null")
     @GetMapping("simple/put")
