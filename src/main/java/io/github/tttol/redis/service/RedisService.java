@@ -15,6 +15,8 @@ public class RedisService {
     public void put(@NonNull String key, @NonNull String value) {
         var connectionFactory = new LettuceConnectionFactory();
 		connectionFactory.afterPropertiesSet();
+		log.info("Redis host: %s".formatted(connectionFactory.getHostName()));
+		log.info("Redis port: %d".formatted(connectionFactory.getPort()));
 
 		var template = new RedisTemplate<String, String>();
 		template.setConnectionFactory(connectionFactory);
